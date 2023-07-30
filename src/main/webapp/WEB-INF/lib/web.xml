@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	 일반적으로 XML 선언은 XML 문서의 첫 번째 줄에 나타납니다.
+	 XML 선언은 필수 항목이 아니지만 사용할 경우 문서에서 첫 번째 줄이어야 하며
+	 그 앞에 다른 내용이나 공백이 없어야 합니다.
+ -->
+ 
+ <!-- C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\web.xml에서 복사합니다. -->
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+<!-- web.xml의 위치는 WEB-INF 아래에 놓습니다. -->
+<!-- 
+	 1. 서블릿 규약은 웹 어플리케이션 전체에 걸쳐서 사용할 수 있는 초기화 파라미터를 제공합니다.
+	 2. 초기화 파라미터는 주로 웹 어플리케이션의 초기화 작업에 필요한 설정 정보를 지정하기 위해 사용됩니다.
+	 3. 예를 들어 데이터 베이스 연결과 관련된 설정 파일의 경로나 로깅 설정 파일,
+	 	또는 웹 어플리케이션의 주요 속성 정보를 담고 있는 파일의 경로 등을 지정할 때 사용합니다.
+	 4. 아래와 같이 초기화 파라미터를 추가하게 되면 application 객체에서 제공하는 메소드를
+	 	사용하여 초기화 파라미터를 JSP 페이지에서 사용할 수 있습니다.
+	 		
+	형식)
+		<context-param>
+			<description>파라미터 설명(필수 아님)</description>
+			<param-name>파라미터 이름</param-name>
+		</context-param>
+ -->
+ 
+ 	<!-- 파라미터 이름이 logEnabled이고 파라미터 값이 "true"인 초기화 파라미터 추가 -->
+	 <context-param>
+				<description>로깅 여부</description>
+				<param-name>logEnabled</param-name>
+				<param-value>true</param-value>
+	 </context-param>
+	 
+	 <!-- 파라미터 이름이 debugLevel이고 파라미터 값이 "5"인 초기화 파라미터 추가 -->
+	 <context-param>
+				<description>디버깅 레벨</description>
+				<param-name>debugLevel</param-name>
+				<param-value>5</param-value>
+	 </context-param>
+	 
+	 <context-param>
+				<description>색상</description>
+				<param-name>color</param-name>
+				<param-value>orange</param-value>
+	 </context-param>
+	 
+	 
+	 <!-- 
+	 	로그인 클릭해서 아이디와 비밀번호를 web.xml에서 설정한 대로 입력한 경우 아래와 같이 처리합니다. 
+		아이디와 비밀번호가 일치하지 않으면 각각에 해당하는 메시지를 확인 버튼이 있는 대화상자로 나타내고 
+		다시 로그인 화면이 나타납니다.
+	  -->
+	  <context-param>
+		  <description>아이디</description>
+		  <param-name>id</param-name>
+		  <param-value>jsp</param-value>
+	  </context-param> 
+	 
+	  <context-param>
+		  <description>비밀번호</description>
+		  <param-name>password</param-name>
+		  <param-value>jsp</param-value>
+	  </context-param>
+	  
+	  <!-- http://localhost:8088/Board_Ajax 주소로 요청이 온 경우
+	  		webapp 아래에서 welcome-file 파일을 차례대로 찾습니다. -->
+	  <welcome-file-list>
+	  	<welcome-file>index.jsp</welcome-file>
+	  </welcome-file-list>
+	  
+</web-app>	 
+	 
+ 
+ 
+ 
